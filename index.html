@@ -1,62 +1,481 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <title>Esküvői Meghívó – Anna & Bence</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #fdf6f0;
-      color: #333;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna & Péter Esküvője - 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1, h2 {
-      color: #6b3e26;
-    }
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
 
-    section {
-      margin-bottom: 3rem;
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
 
-    iframe {
-      width: 100%;
-      height: 1200px;
-      border: none;
-    }
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out;
+        }
 
-    .container {
-      padding: 1rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    }
-  </style>
+        .hero-content .date {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-content .scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar.show {
+            transform: translateY(0);
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #d4af37;
+            font-weight: 300;
+        }
+
+        /* Story Section */
+        .story {
+            background: #f9f9f9;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Details Section */
+        .details {
+            background: white;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .detail-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-card .icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: linear-gradient(rgba(212,175,55,0.1), rgba(212,175,55,0.1)),
+                        url('https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        .rsvp-form {
+            background: rgba(255,255,255,0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .submit-btn {
+            background: #d4af37;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #b8941f;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .date {
+                font-size: 1.2rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <section class="container">
-    <h1>Anna & Bence esküvője</h1>
-    <p>Szeretettel meghívunk Téged és kísérődet a 2025. július 19-én tartandó esküvőnkre!</p>
-    <p>Helyszín: Pázmány Major, Dunabogdány</p>
-  </section>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="#home">Főoldal</a></li>
+            <li><a href="#story">Történetünk</a></li>
+            <li><a href="#details">Részletek</a></li>
+            <li><a href="#rsvp">Visszajelzés</a></li>
+        </ul>
+    </nav>
 
-  <section class="container">
-    <h2>Részvételi visszajelzés</h2>
-    <p>Kérjük, töltsd ki az alábbi űrlapot legkésőbb 2025. május 31-ig. Itt tudsz jelezni ételallergiát, zeneszámot, és kísérődet is.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Anna & Péter</h1>
+            <p class="date">2025. augusztus 15.</p>
+            <div class="scroll-arrow" onclick="scrollToSection('story')">↓</div>
+        </div>
+    </section>
 
-    <!-- 🔽 IDE jön a Google Forms iframe – cseréld ki az URL-t a sajátodra -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXXXXXXXXXXXXXXXXXXX/viewform?embedded=true" loading="lazy">Űrlap betöltése…</iframe>
-  </section>
+    <!-- Story Section -->
+    <section class="section story" id="story">
+        <h2>A Mi Történetünk</h2>
+        <div class="story-content">
+            <div class="story-text">
+                <p>Hat évvel ezelőtt, egy közös barát házibulján találkoztunk először. Anna éppen a konyhában segített, Péter pedig a gitárjával szórakoztatta a vendégeket. Egy véletlen pillanat volt, amikor tekintetünk találkozott, és mindketten tudtuk, hogy valami különleges kezdődik.</p>
+                
+                <p>Az első randinkon egy kis kávézóban ültünk órákig, és beszélgettünk minden földi és földöntúli dologról. Azóta is így van - sosem fogynak el a témáink, és minden nap újat fedezünk fel egymásban.</p>
+                
+                <p>Most, hat év után, készen állunk arra, hogy ezt a gyönyörű utazást házasságban folytassuk. Szeretnénk, ha Ti is részei lennétek ennek a különleges napnak!</p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pár képe">
+            </div>
+        </div>
+    </section>
 
-  <section class="container">
-    <h2>Kapcsolat</h2>
-    <p>Ha bármilyen kérdésed van, kérlek írj nekünk:  
-      <a href="mailto:eskuvo@pelda.hu">eskuvo@pelda.hu</a>
-    </p>
-  </section>
+    <!-- Details Section -->
+    <section class="section details" id="details">
+        <h2>Esemény Részletek</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="icon">⛪</div>
+                <h3>Szertartás</h3>
+                <p><strong>Időpont:</strong> 2025. augusztus 15., 15:00</p>
+                <p><strong>Helyszín:</strong> Szent István Bazilika<br>1051 Budapest, Szent István tér 1.</p>
+            </div>
+            <div class="detail-card">
+                <div class="icon">🎉</div>
+                <h3>Vacsora & Buli</h3>
+                <p><strong>Időpont:</strong> 2025. augusztus 15., 18:00</p>
+                <p><strong>Helyszín:</strong> Gundel Étterem<br>1146 Budapest, Gundel Károly út 4.</p>
+            </div>
+            <div class="detail-card">
+                <div class="icon">🏨</div>
+                <h3>Szállás</h3>
+                <p><strong>Ajánlott hotel:</strong> Aria Hotel Budapest</p>
+                <p><strong>Cím:</strong> 1051 Budapest, Hercegprímás u. 5.</p>
+                <p><em>Csoportos kedvezménnyel foglalható</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section rsvp" id="rsvp">
+        <h2>Visszajelzés</h2>
+        <form class="rsvp-form" id="rsvpForm">
+            <div class="form-group">
+                <label for="name">Teljes név:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email cím:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="attendance">Részvétel:</label>
+                <select id="attendance" name="attendance" required>
+                    <option value="">Válassz...</option>
+                    <option value="yes">Igen, ott leszek</option>
+                    <option value="no">Sajnos nem tudok részt venni</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">Kísérők száma (Önön kívül):</label>
+                <select id="guests" name="guests">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="dietary">Étrendi megszorítások/allergiak:</label>
+                <textarea id="dietary" name="dietary" rows="3" placeholder="pl. vegetáriánus, gluténmentes, stb."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Üzenet a házaspárnak:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Írj nekünk egy kedves üzenetet..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Visszajelzés Elküldése</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Anna & Péter Esküvője. Minden jog fenntartva.</p>
+        <p>Kérdések esetén: anna.peter.eskuvo@gmail.com</p>
+    </footer>
+
+    <script>
+        // Navigation show/hide on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('show');
+            } else {
+                navbar.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click events to nav links
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // RSVP Form handling
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Here you would normally send the data to a server
+            // For now, we'll just show an alert
+            alert('Köszönjük a visszajelzést! Hamarosan kapcsolatba lépünk Veled.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add entrance animations when scrolling
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.detail-card, .story-text, .story-image');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize animation styles
+        document.querySelectorAll('.detail-card, .story-text, .story-image').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+    </script>
 </body>
 </html>
