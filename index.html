@@ -315,11 +315,13 @@
         <h2>A Mi Történetünk</h2>
         <div class="story-content">
             <div class="story-text">
-                <p>Hat évvel ezelőtt, egy közös barát házibulján találkoztunk először. Anna éppen a konyhában segített, Péter pedig a gitárjával szórakoztatta a vendégeket. Egy véletlen pillanat volt, amikor tekintetünk találkozott, és mindketten tudtuk, hogy valami különleges kezdődik.</p>
+                <p>Nagyából három évvel ezelőtt, egy közös barát házibulján találkoztunk először. A közös bevásárláshoz pedig ő is beugrott a bevásárlókocsimba, </p>
+
+                <p>később cigánykerekeivel és tekintetével teljesen elvarázsolt. Még aznap este tettünk egy kisujj esküt, hogy fogunk egy jót túrázni.</p>
+
+                <p>Azóta rengeteg csodálatos elményt élhettünk meg és mindig hálások vagyunk egymásnak, amiért kitartunk jóban rosszban.</p>
                 
-                <p>Az első randinkon egy kis kávézóban ültünk órákig, és beszélgettünk minden földi és földöntúli dologról. Azóta is így van - sosem fogynak el a témáink, és minden nap újat fedezünk fel egymásban.</p>
-                
-                <p>Most, hat év után, készen állunk arra, hogy ezt a gyönyörű utazást házasságban folytassuk. Szeretnénk, ha Ti is részei lennétek ennek a különleges napnak!</p>
+                <p>Most, két és fél év után, készen állunk arra, hogy ezt a gyönyörű utazást házasságban folytassuk. Szeretnénk, ha Ti is részei lennétek ennek a különleges napnak!</p>
             </div>
             <div class="story-image">
                 <img src="/dependencies/eIMG_9591.jpg" alt="Pár képe">
@@ -335,75 +337,41 @@
                 <div class="icon">⛪</div>
                 <h3>Szertartás</h3>
                 <p><strong>Időpont:</strong> 2025. október 11., 14:00</p>
-                <p><strong>Helyszín:</strong> Magyar Szentek Temploma<br>cím</p>
+                <p><strong>Helyszín:</strong> Magyar Szentek Temploma<br>Budapest, Magyar Tudósok Körútja 1, 1117<br>https://maps.app.goo.gl/vdMMtXx9SCjYdb1o8</p>
             </div>
             <div class="detail-card">
                 <div class="icon">🎉</div>
                 <h3>Vacsora & Buli</h3>
                 <p><strong>Időpont:</strong> 2025. október 11., 18:00</p>
-                <p><strong>Helyszín:</strong> Soós Károly Tangazdaság<br>cím</p>
-            </div>
-            <div class="detail-card">
-                <div class="icon">🏨</div>
-                <h3>Szállás</h3>
-                <p><strong>Ajánlott hotel:</strong> Aria Hotel Budapest</p>
-                <p><strong>Cím:</strong> 1051 Budapest, Hercegprímás u. 5.</p>
-                <p><em>Csoportos kedvezménnyel foglalható</em></p>
+                <p><strong>Helyszín:</strong> Soós Károly Tangazdaság<br>Budapest, Jósika u. 14, 1221<br>https://maps.app.goo.gl/JTddYQGVci5m8c3D8</p>
             </div>
         </div>
     </section>
 
+
     <!-- RSVP Section -->
     <section class="section rsvp" id="rsvp">
         <h2>Visszajelzés</h2>
-        <form class="rsvp-form" id="rsvpForm">
-            <div class="form-group">
-                <label for="name">Teljes név:</label>
-                <input type="text" id="name" name="name" required>
+        <div class="rsvp-form">
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                Kérjük, töltsd ki az alábbi űrlapot, hogy tudjuk, számíthatunk-e rád a nagy napon!
+            </p>
+            
+            <!-- Google Forms Embed -->
+            <div class="google-form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfARYCTXCDb8cAbjgxFTstboLg8PmmD8IDlUJH5R6b8rutZIw/viewform?embedded=true" width="640" height="1066" frameborder="0" marginheight="0" marginwidth="0">Betöltés…</iframe>
             </div>
             
-            <div class="form-group">
-                <label for="email">Email cím:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="form-alternative" style="margin-top: 2rem; text-align: center; font-style: italic; color: #666;">
+                <p>Ha az űrlap nem töltődik be, <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank" style="color: #d4af37; text-decoration: none;">kattints ide a közvetlen linkért</a></p>
             </div>
-            
-            <div class="form-group">
-                <label for="attendance">Részvétel:</label>
-                <select id="attendance" name="attendance" required>
-                    <option value="">Válassz...</option>
-                    <option value="yes">Igen, ott leszek</option>
-                    <option value="no">Sajnos nem tudok részt venni</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="guests">Kísérők száma (Önön kívül):</label>
-                <select id="guests" name="guests">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="dietary">Étrendi megszorítások/allergiak:</label>
-                <textarea id="dietary" name="dietary" rows="3" placeholder="pl. vegetáriánus, gluténmentes, stb."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Üzenet a házaspárnak:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Írj nekünk egy kedves üzenetet..."></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">Visszajelzés Elküldése</button>
-        </form>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Fanni & Marcell Esküvője. Minden jog fenntartva.</p>
-        <p>Kérdések esetén: marcell.pinter.96@gmail.com vagy bisztrai.fanni@gmail.com</p>
+        <p>&copy; 2025 Anna & Péter Esküvője. Minden jog fenntartva.</p>
+        <p>Kérdések esetén: anna.peter.eskuvo@gmail.com</p>
     </footer>
 
     <script>
@@ -431,25 +399,6 @@
                 const targetId = this.getAttribute('href').substring(1);
                 scrollToSection(targetId);
             });
-        });
-
-        // RSVP Form handling
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = new FormData(this);
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            
-            // Here you would normally send the data to a server
-            // For now, we'll just show an alert
-            alert('Köszönjük a visszajelzést! Hamarosan kapcsolatba lépünk Veled.');
-            
-            // Reset form
-            this.reset();
         });
 
         // Add entrance animations when scrolling
